@@ -1,0 +1,6 @@
+{
+  "name": "Bhagirathi Industries",
+  "description": "Premium corporate website for Bhagirathi Industries Pvt. Ltd. - leading manufacturers of packaged drinking water, alkaline water, PET bottles, and OEM packaging solutions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
