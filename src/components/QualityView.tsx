@@ -45,13 +45,12 @@ export default function QualityView({ onNavigate }: QualityViewProps) {
   };
 
   return (
-    <div className="relative">
+    <div>
       
       {/* Page Header */}
-      <section className="bg-gradient-to-br from-slate-900 to-brand-secondary text-white py-16 px-4 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-brand-primary/15 pointer-events-none"></div>
-        <div className="max-w-4xl mx-auto space-y-4 relative z-10">
-          <span className="text-xs font-bold uppercase tracking-widest text-brand-accent bg-brand-accent/10 px-3 py-1 rounded-full">
+      <section className="bg-brand-secondary text-white py-16 px-4 text-center">
+        <div className="max-w-4xl mx-auto space-y-4">
+          <span className="text-xs font-semibold uppercase tracking-wider text-brand-accent bg-white/10 px-3 py-1 rounded-full">
             Quality Assurance Labs
           </span>
           <h1 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight leading-tight">
@@ -68,7 +67,7 @@ export default function QualityView({ onNavigate }: QualityViewProps) {
         <div className="max-w-7xl mx-auto">
           
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-2">
-            <span className="text-xs font-bold uppercase tracking-widest text-brand-primary bg-brand-primary/5 px-3 py-1 rounded-full">
+            <span className="text-xs font-semibold uppercase tracking-wider text-brand-primary bg-brand-primary/5 px-3 py-1 rounded-full">
               Government Licensing
             </span>
             <h2 className="font-display font-bold text-3xl text-brand-secondary">National & Global Certifications</h2>
@@ -79,7 +78,7 @@ export default function QualityView({ onNavigate }: QualityViewProps) {
             {CERTIFICATIONS_DATA.map((cert) => (
               <div 
                 key={cert.id}
-                className="bg-slate-50 border border-slate-200/60 p-6 rounded-2xl flex flex-col justify-between hover:shadow-md transition-all text-left space-y-4"
+                className="bg-white border border-slate-200 p-6 rounded-xl flex flex-col justify-between hover:shadow-sm transition-all text-left space-y-4"
               >
                 <div className="space-y-2">
                   <div className="flex justify-between items-start">
@@ -101,11 +100,11 @@ export default function QualityView({ onNavigate }: QualityViewProps) {
       </section>
 
       {/* INTERACTIVE LAB TESTING REPORT BOARD */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 border-y border-slate-200/50 text-left">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-brand-light border-y border-slate-200/50 text-left">
         <div className="max-w-7xl mx-auto">
           
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-brand-primary bg-brand-primary/5 px-3 py-1 rounded-full">
+            <span className="text-xs font-semibold uppercase tracking-wider text-brand-primary bg-brand-primary/5 px-3 py-1 rounded-full">
               Live Lab Reports
             </span>
             <h2 className="font-display font-bold text-3xl text-brand-secondary">
@@ -117,10 +116,10 @@ export default function QualityView({ onNavigate }: QualityViewProps) {
           </div>
 
           {/* Interactive Report Card Frame */}
-          <div className="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm max-w-5xl mx-auto">
+          <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm max-w-5xl mx-auto">
             
             {/* Table Header Controls */}
-            <div className="bg-slate-900 text-white p-4 sm:p-6 flex flex-col sm:flex-row justify-between items-center border-b border-slate-800 gap-4">
+            <div className="bg-brand-secondary text-white p-4 sm:p-6 flex flex-col sm:flex-row justify-between items-center border-b border-slate-800 gap-4">
               <div className="flex items-center gap-2 text-left">
                 <div className="p-2 rounded bg-white/5 border border-white/10">
                   <Activity className="w-5 h-5 text-brand-accent" />
@@ -207,10 +206,10 @@ export default function QualityView({ onNavigate }: QualityViewProps) {
           <div className="pt-4">
             <button
               onClick={() => onNavigate(NavSection.Contact)}
-              className="px-5 py-3 rounded-xl bg-brand-primary hover:bg-brand-secondary text-white text-xs font-bold transition-all flex items-center gap-2 cursor-pointer"
+              className="px-5 py-3 rounded-lg bg-brand-primary hover:bg-brand-primary/90 text-white text-xs font-bold transition-all flex items-center gap-2 cursor-pointer"
             >
               Request Certified Testing Documentation
-              <ArrowRight className="w-4 h-4 text-brand-accent" />
+              <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>

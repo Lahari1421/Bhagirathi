@@ -83,10 +83,9 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
     <div className="relative">
       
       {/* Page Header */}
-      <section className="bg-gradient-to-br from-slate-900 to-brand-secondary text-white py-16 px-4 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-brand-primary/15 pointer-events-none"></div>
-        <div className="max-w-4xl mx-auto space-y-4 relative z-10">
-          <span className="text-xs font-bold uppercase tracking-widest text-brand-accent bg-brand-accent/10 px-3 py-1 rounded-full">
+      <section className="bg-brand-secondary text-white py-16 px-4 text-center">
+        <div className="max-w-4xl mx-auto space-y-4">
+          <span className="text-brand-accent bg-white/10 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
             Inquiry & Support Hub
           </span>
           <h1 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight leading-tight">
@@ -108,7 +107,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
             <div className="lg:col-span-5 space-y-8">
               
               <div className="space-y-3">
-                <span className="text-xs font-bold text-brand-primary uppercase tracking-wider block">Office Directories</span>
+                <span className="text-xs font-bold text-brand-primary bg-brand-primary/5 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider inline-block">Office Directories</span>
                 <h2 className="font-display font-bold text-2xl sm:text-3xl text-brand-secondary leading-tight">
                   Direct Sourcing Channels
                 </h2>
@@ -120,7 +119,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
               {/* Contact list cards */}
               <div className="space-y-4">
                 
-                <div className="p-5 bg-slate-50 rounded-2xl border flex gap-4 items-start">
+                <div className="p-5 bg-brand-light border border-slate-200 rounded-xl flex gap-4 items-start">
                   <MapPin className="w-6 h-6 text-brand-primary shrink-0 mt-0.5" />
                   <div className="space-y-1 text-xs text-slate-600">
                     <strong className="text-sm text-brand-secondary block font-bold">Pune Factory & Labs</strong>
@@ -129,7 +128,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                   </div>
                 </div>
 
-                <div className="p-5 bg-slate-50 rounded-2xl border flex gap-4 items-start">
+                <div className="p-5 bg-brand-light border border-slate-200 rounded-xl flex gap-4 items-start">
                   <Mail className="w-6 h-6 text-brand-primary shrink-0 mt-0.5" />
                   <div className="space-y-1 text-xs text-slate-600">
                     <strong className="text-sm text-brand-secondary block font-bold">Corporate Email Desk</strong>
@@ -138,7 +137,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                   </div>
                 </div>
 
-                <div className="p-5 bg-slate-50 rounded-2xl border flex gap-4 items-start">
+                <div className="p-5 bg-brand-light border border-slate-200 rounded-xl flex gap-4 items-start">
                   <Phone className="w-6 h-6 text-brand-primary shrink-0 mt-0.5" />
                   <div className="space-y-1 text-xs text-slate-600">
                     <strong className="text-sm text-brand-secondary block font-bold">Quotation Telephones</strong>
@@ -150,7 +149,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
               </div>
 
               {/* WhatsApp click to Chat Card */}
-              <div className="p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-slate-700 space-y-4">
+              <div className="p-6 bg-emerald-50 border border-emerald-200 rounded-xl text-slate-700 space-y-4">
                 <div className="flex gap-3 items-center">
                   <div className="p-2.5 rounded-xl bg-emerald-500 text-white shadow-md shadow-emerald-500/10">
                     {/* SVG WhatsApp icon */}
@@ -168,7 +167,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                 </p>
                 <button
                   onClick={handleWhatsAppRoute}
-                  className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   Start WhatsApp B2B Chat
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -178,10 +177,10 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
             </div>
 
             {/* Right Column: B2B QUOTATION FORM */}
-            <div className="lg:col-span-7 bg-slate-50 border border-slate-200/60 p-6 sm:p-10 rounded-3xl space-y-6 shadow-sm">
+            <div className="lg:col-span-7 bg-brand-light border border-slate-200 rounded-2xl p-6 sm:p-10 space-y-6">
               
               <div className="space-y-1">
-                <span className="text-xs font-bold text-brand-primary uppercase block tracking-wider">Wholesale Quotation</span>
+                <span className="text-xs font-bold text-brand-primary bg-brand-primary/5 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider inline-block">Wholesale Quotation</span>
                 <h3 className="font-display font-bold text-2xl text-brand-secondary">Request An Official Proposal</h3>
                 <p className="text-slate-500 text-xs">For wholesale distributor pricing, B2B glass lines, or private labels. Enter specifications below.</p>
               </div>
@@ -194,7 +193,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                     type="text"
                     value={form.name}
                     onChange={e => setForm(prev => ({ ...prev, name: e.target.value }))}
-                    className="w-full px-4 py-2.5 bg-white border rounded-xl text-xs focus:outline-none focus:border-brand-primary"
+                    className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-brand-primary"
                     placeholder="Enter full name"
                     required
                   />
@@ -206,7 +205,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                     type="email"
                     value={form.email}
                     onChange={e => setForm(prev => ({ ...prev, email: e.target.value }))}
-                    className="w-full px-4 py-2.5 bg-white border rounded-xl text-xs focus:outline-none focus:border-brand-primary"
+                    className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-brand-primary"
                     placeholder="name@entity.com"
                     required
                   />
@@ -218,7 +217,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                     type="tel"
                     value={form.phone}
                     onChange={e => setForm(prev => ({ ...prev, phone: e.target.value }))}
-                    className="w-full px-4 py-2.5 bg-white border rounded-xl text-xs focus:outline-none focus:border-brand-primary"
+                    className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-brand-primary"
                     placeholder="+91 XXXXX XXXXX"
                     required
                   />
@@ -230,7 +229,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                     type="text"
                     value={form.companyName}
                     onChange={e => setForm(prev => ({ ...prev, companyName: e.target.value }))}
-                    className="w-full px-4 py-2.5 bg-white border rounded-xl text-xs focus:outline-none focus:border-brand-primary"
+                    className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-brand-primary"
                     placeholder="E.g. Hyatt Suites"
                     required
                   />
@@ -241,7 +240,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                   <select
                     value={form.productOfInterest}
                     onChange={e => setForm(prev => ({ ...prev, productOfInterest: e.target.value }))}
-                    className="w-full px-4 py-2.5 bg-white border rounded-xl text-xs focus:outline-none focus:border-brand-primary"
+                    className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-brand-primary"
                     required
                   >
                     <option value="">Choose Category...</option>
@@ -258,7 +257,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                   <select
                     value={form.quantityNeeded}
                     onChange={e => setForm(prev => ({ ...prev, quantityNeeded: e.target.value }))}
-                    className="w-full px-4 py-2.5 bg-white border rounded-xl text-xs focus:outline-none focus:border-brand-primary"
+                    className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-brand-primary"
                     required
                   >
                     <option value="5000">5,000 - 10,000 Units</option>
@@ -274,7 +273,7 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                     rows={4}
                     value={form.message}
                     onChange={e => setForm(prev => ({ ...prev, message: e.target.value }))}
-                    className="w-full px-4 py-2.5 bg-white border rounded-xl text-xs focus:outline-none focus:border-brand-primary"
+                    className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-brand-primary"
                     placeholder="E.g. We require our custom logo embossed on a 1-litre rectangular spiral neck PET bottle..."
                     required
                   />
@@ -297,10 +296,10 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                 <div className="sm:col-span-2 pt-2">
                   <button
                     type="submit"
-                    className="w-full py-4 rounded-xl bg-brand-secondary hover:bg-brand-primary text-white text-xs font-bold shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full py-4 rounded-lg bg-brand-primary hover:bg-brand-primary/90 text-white text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     Submit Formal Proposal Request
-                    <Send className="w-4 h-4 text-brand-accent" />
+                    <Send className="w-4 h-4" />
                   </button>
                 </div>
 
@@ -324,14 +323,14 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
           <div className="mt-24 border-t border-slate-100 pt-16 text-center">
             
             <div className="max-w-2xl mx-auto mb-12 space-y-2">
-              <span className="text-xs font-bold uppercase tracking-widest text-brand-primary bg-brand-primary/5 px-3 py-1 rounded-full">
+              <span className="text-xs font-bold uppercase tracking-widest text-brand-primary bg-brand-primary/5 rounded-full px-3 py-1">
                 Interactive Directory
               </span>
               <h3 className="font-display font-bold text-2xl text-brand-secondary">Regional Logistics & Infrastructure Map</h3>
               <p className="text-slate-500 text-xs">Hover or click nodes on the customized layout map below to review regional logistics details.</p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-5xl mx-auto bg-slate-50 border border-slate-200/60 rounded-3xl p-6 sm:p-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-5xl mx-auto bg-brand-light border border-slate-200 rounded-2xl p-6 sm:p-8">
               
               {/* SVG Map visual */}
               <div className="lg:col-span-7 flex justify-center bg-slate-900 rounded-2xl p-6 border relative overflow-hidden h-72 sm:h-96">
@@ -406,9 +405,9 @@ export default function ContactView({ onNavigate }: ContactViewProps) {
                     <button
                       key={key}
                       onClick={() => setActiveMapNode(key)}
-                      className={`flex-1 py-2 text-center rounded-xl text-[10px] font-bold tracking-wider uppercase transition-all cursor-pointer ${
+                      className={`flex-1 py-2 text-center rounded-lg text-[10px] font-bold tracking-wider uppercase transition-all cursor-pointer ${
                         activeMapNode === key
-                          ? 'bg-brand-primary text-white shadow-md'
+                          ? 'bg-brand-primary text-white'
                           : 'bg-white text-slate-600 border'
                       }`}
                     >

@@ -5,6 +5,7 @@
 
 export enum NavSection {
   Home = 'home',
+  Story = 'story',
   About = 'about',
   Products = 'products',
   Manufacturing = 'manufacturing',

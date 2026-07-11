@@ -128,10 +128,9 @@ export default function CareersView({ onNavigate }: CareersViewProps) {
     <div className="relative">
       
       {/* Visual Page Header */}
-      <section className="bg-gradient-to-br from-slate-900 to-brand-secondary text-white py-16 px-4 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-brand-primary/15 pointer-events-none"></div>
-        <div className="max-w-4xl mx-auto space-y-4 relative z-10">
-          <span className="text-xs font-bold uppercase tracking-widest text-brand-accent bg-brand-accent/10 px-3 py-1 rounded-full">
+      <section className="bg-brand-secondary text-white py-16 px-4 text-center">
+        <div className="max-w-4xl mx-auto space-y-4">
+          <span className="text-brand-accent bg-white/10 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
             Careers & Culture
           </span>
           <h1 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight leading-tight">
@@ -151,7 +150,7 @@ export default function CareersView({ onNavigate }: CareersViewProps) {
             
             {/* Vacancies List */}
             <div className="lg:col-span-7 space-y-6">
-              <span className="text-xs font-bold text-brand-primary uppercase tracking-wider block mb-2">Available Openings</span>
+              <span className="text-xs font-bold text-brand-primary bg-brand-primary/5 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider inline-block mb-2">Available Openings</span>
               <h2 className="font-display font-bold text-3xl text-brand-secondary mb-6 leading-tight">
                 Current Professional Opportunities
               </h2>
@@ -162,8 +161,8 @@ export default function CareersView({ onNavigate }: CareersViewProps) {
                   return (
                     <div 
                       key={job.id}
-                      className={`border rounded-2xl transition-all overflow-hidden ${
-                        isExpanded ? 'border-brand-primary bg-slate-50/50 shadow-sm' : 'border-slate-200 hover:border-slate-300 bg-white'
+                      className={`border rounded-xl transition-all overflow-hidden ${
+                        isExpanded ? 'border-brand-primary/30 bg-brand-light/50' : 'border-slate-200 hover:border-slate-300 bg-white'
                       }`}
                     >
                       {/* Header Summary */}
@@ -225,7 +224,7 @@ export default function CareersView({ onNavigate }: CareersViewProps) {
                                 setApplicantForm(prev => ({ ...prev, position: job.title }));
                                 document.getElementById('career-application-form')?.scrollIntoView({ behavior: 'smooth' });
                               }}
-                              className="px-5 py-2.5 rounded-xl bg-brand-primary text-white font-bold text-xs hover:bg-brand-secondary transition-all cursor-pointer"
+                              className="px-5 py-2.5 rounded-lg bg-brand-primary hover:bg-brand-primary/90 text-white font-bold text-xs cursor-pointer"
                             >
                               Apply For This Role
                             </button>
@@ -242,7 +241,7 @@ export default function CareersView({ onNavigate }: CareersViewProps) {
             </div>
 
             {/* Cultural Benefits Side Panel */}
-            <div className="lg:col-span-5 space-y-6 bg-slate-50 border border-slate-200 p-6 sm:p-8 rounded-2xl">
+            <div className="lg:col-span-5 space-y-6 bg-brand-light border border-slate-200 rounded-xl p-6 sm:p-8">
               <h3 className="font-display font-bold text-lg text-brand-secondary mb-4">Why Work at Bhagirathi</h3>
               <div className="space-y-6">
                 {benefits.map((b, idx) => (
@@ -258,10 +257,10 @@ export default function CareersView({ onNavigate }: CareersViewProps) {
 
           {/* APPLICATION FORM BLOCK (Interactive file upload) */}
           <div id="career-application-form" className="mt-20 border-t border-slate-100 pt-16">
-            <div className="max-w-3xl mx-auto bg-slate-50 border border-slate-200/60 rounded-3xl p-6 sm:p-10 shadow-sm text-left space-y-6">
+            <div className="max-w-3xl mx-auto bg-brand-light border border-slate-200 rounded-2xl p-6 sm:p-10 text-left space-y-6">
               
               <div className="space-y-1">
-                <span className="text-xs font-bold text-brand-accent uppercase block tracking-wider">Join the plant</span>
+                <span className="text-xs font-bold text-brand-primary bg-brand-primary/5 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider block">Join the plant</span>
                 <h3 className="font-display font-bold text-2xl text-brand-secondary">Submit Your Professional Application</h3>
                 <p className="text-slate-500 text-xs">Fill out your details, attach a PDF resume, and our human resources department will evaluate your profile.</p>
               </div>
@@ -275,7 +274,7 @@ export default function CareersView({ onNavigate }: CareersViewProps) {
                       type="text"
                       value={applicantForm.name}
                       onChange={e => setApplicantForm(prev => ({ ...prev, name: e.target.value }))}
-                      className="w-full px-4 py-2.5 bg-white border rounded-xl text-xs focus:outline-none focus:border-brand-primary"
+                      className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-brand-primary"
                       placeholder="E.g. Dr. Anand Kulkarni"
                       required
                     />
@@ -287,7 +286,7 @@ export default function CareersView({ onNavigate }: CareersViewProps) {
                       type="email"
                       value={applicantForm.email}
                       onChange={e => setApplicantForm(prev => ({ ...prev, email: e.target.value }))}
-                      className="w-full px-4 py-2.5 bg-white border rounded-xl text-xs focus:outline-none focus:border-brand-primary"
+                      className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-brand-primary"
                       placeholder="name@gmail.com"
                       required
                     />
@@ -299,7 +298,7 @@ export default function CareersView({ onNavigate }: CareersViewProps) {
                       type="tel"
                       value={applicantForm.phone}
                       onChange={e => setApplicantForm(prev => ({ ...prev, phone: e.target.value }))}
-                      className="w-full px-4 py-2.5 bg-white border rounded-xl text-xs focus:outline-none focus:border-brand-primary"
+                      className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-brand-primary"
                       placeholder="+91 98765 43210"
                       required
                     />
@@ -310,7 +309,7 @@ export default function CareersView({ onNavigate }: CareersViewProps) {
                     <select
                       value={applicantForm.position}
                       onChange={e => setApplicantForm(prev => ({ ...prev, position: e.target.value }))}
-                      className="w-full px-4 py-2.5 bg-white border rounded-xl text-xs focus:outline-none focus:border-brand-primary"
+                      className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-brand-primary"
                       required
                     >
                       <option value="">Select target role...</option>
@@ -328,7 +327,7 @@ export default function CareersView({ onNavigate }: CareersViewProps) {
                     rows={4}
                     value={applicantForm.coverLetter}
                     onChange={e => setApplicantForm(prev => ({ ...prev, coverLetter: e.target.value }))}
-                    className="w-full px-4 py-2.5 bg-white border rounded-xl text-xs focus:outline-none focus:border-brand-primary"
+                    className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-brand-primary"
                     placeholder="Briefly describe your chemical or mechatronic bottling expertise..."
                     required
                   />
@@ -399,10 +398,10 @@ export default function CareersView({ onNavigate }: CareersViewProps) {
                 <div className="pt-4">
                   <button
                     type="submit"
-                    className="w-full py-4 rounded-xl bg-brand-secondary hover:bg-brand-primary text-white text-xs font-bold shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full py-4 rounded-lg bg-brand-primary hover:bg-brand-primary/90 text-white text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     Submit Resume Profile
-                    <Send className="w-4 h-4 text-brand-accent" />
+                    <Send className="w-4 h-4" />
                   </button>
                 </div>
 

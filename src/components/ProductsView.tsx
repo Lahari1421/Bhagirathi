@@ -77,10 +77,9 @@ export default function ProductsView({ onNavigate, selectedProductId, onSelectPr
     <div className="relative">
       
       {/* Banner */}
-      <section className="bg-gradient-to-br from-slate-900 to-brand-secondary text-white py-16 px-4 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-brand-primary/15 pointer-events-none"></div>
-        <div className="max-w-4xl mx-auto space-y-4 relative z-10">
-          <span className="text-xs font-bold uppercase tracking-widest text-brand-accent bg-brand-accent/10 px-3 py-1 rounded-full">
+      <section className="bg-brand-secondary text-white py-16 px-4 text-center">
+        <div className="max-w-4xl mx-auto space-y-4">
+          <span className="text-brand-accent bg-white/10 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
             Product Showrooms
           </span>
           <h1 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight leading-tight">
@@ -93,7 +92,7 @@ export default function ProductsView({ onNavigate, selectedProductId, onSelectPr
       </section>
 
       {/* Product Catalog Core */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-brand-light">
         <div className="max-w-7xl mx-auto">
           
           {/* Catalog Filter Controls (Only show when not in detail modal view) */}
@@ -115,8 +114,8 @@ export default function ProductsView({ onNavigate, selectedProductId, onSelectPr
                     onClick={() => setActiveCategory(tab.cat as any)}
                     className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                       activeCategory === tab.cat
-                        ? 'bg-brand-primary text-white shadow-md shadow-brand-primary/10'
-                        : 'bg-slate-50 text-slate-600 hover:bg-slate-100 border border-slate-200/50'
+                        ? 'bg-brand-primary text-white'
+                        : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'
                     }`}
                   >
                     {tab.label}
@@ -132,7 +131,7 @@ export default function ProductsView({ onNavigate, selectedProductId, onSelectPr
               {filteredProducts.map((product) => (
                 <div 
                   key={product.id}
-                  className="bg-white rounded-2xl border border-slate-200/60 overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between"
+                  className="bg-white border border-slate-200 rounded-xl overflow-hidden hover:shadow-sm transition-all flex flex-col justify-between"
                 >
                   <div className="h-56 overflow-hidden relative">
                     <img 
@@ -141,7 +140,7 @@ export default function ProductsView({ onNavigate, selectedProductId, onSelectPr
                       className="w-full h-full object-cover"
                       referrerPolicy="no-referrer"
                     />
-                    <span className="absolute top-3 right-3 px-2.5 py-1 rounded bg-white/95 text-[9px] font-bold uppercase tracking-wider text-brand-primary border border-slate-200/50">
+                    <span className="absolute top-3 right-3 px-2.5 py-1 rounded bg-white/95 text-[9px] font-bold uppercase tracking-wider text-brand-primary border border-slate-200">
                       {product.category}
                     </span>
                   </div>
@@ -155,7 +154,7 @@ export default function ProductsView({ onNavigate, selectedProductId, onSelectPr
                       <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Sizes Included:</span>
                       <div className="flex flex-wrap gap-1">
                         {product.sizes.map((s, idx) => (
-                          <span key={idx} className="px-2 py-0.5 rounded bg-slate-100 text-slate-600 text-[9px] font-medium border border-slate-200/50">
+                          <span key={idx} className="px-2 py-0.5 rounded bg-slate-100 text-slate-600 text-[9px] font-medium border border-slate-200">
                             {s}
                           </span>
                         ))}
@@ -177,7 +176,7 @@ export default function ProductsView({ onNavigate, selectedProductId, onSelectPr
                         // scroll down to inquiry section
                         document.getElementById('b2b-rapid-inquiry')?.scrollIntoView({ behavior: 'smooth' });
                       }}
-                      className="px-3.5 py-2 rounded-xl text-white font-medium text-xs bg-brand-secondary hover:bg-brand-primary transition-colors cursor-pointer"
+                      className="px-3.5 py-2 rounded-lg text-white font-medium text-xs bg-brand-primary hover:bg-brand-primary/90 transition-colors cursor-pointer"
                     >
                       Instant Inquiry
                     </button>
@@ -189,12 +188,12 @@ export default function ProductsView({ onNavigate, selectedProductId, onSelectPr
 
           {/* Interactive Modal-Like Inplace Product Detail View */}
           {activeProduct && (
-            <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-10 relative">
+            <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-10 relative">
               
               {/* Close / Return to List Button */}
               <button
                 onClick={() => onSelectProduct(null)}
-                className="absolute top-4 right-4 p-2.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-600 shadow-sm transition-all cursor-pointer"
+                className="absolute top-4 right-4 p-2.5 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-600 transition-all cursor-pointer"
                 aria-label="Back to Catalog"
               >
                 <X className="w-5 h-5" />
@@ -204,7 +203,7 @@ export default function ProductsView({ onNavigate, selectedProductId, onSelectPr
                 
                 {/* Left Panel: Image & Specs */}
                 <div className="lg:col-span-5 space-y-6">
-                  <div className="h-72 sm:h-96 rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+                  <div className="h-72 sm:h-96 rounded-2xl overflow-hidden border border-slate-200">
                     <img 
                       src={activeProduct.imageUrl} 
                       alt={activeProduct.name} 
@@ -214,7 +213,7 @@ export default function ProductsView({ onNavigate, selectedProductId, onSelectPr
                   </div>
 
                   {/* Specification Table */}
-                  <div className="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm text-left">
+                  <div className="bg-white p-6 rounded-2xl border border-slate-200 text-left">
                     <h4 className="font-display font-bold text-sm text-brand-secondary uppercase tracking-wider mb-4 border-b pb-2">
                       Chemical & Physical Specs
                     </h4>
@@ -262,7 +261,7 @@ export default function ProductsView({ onNavigate, selectedProductId, onSelectPr
                     <h4 className="font-bold text-sm text-brand-secondary">Available Commercial Sizing</h4>
                     <div className="flex flex-wrap gap-2">
                       {activeProduct.sizes.map((s, idx) => (
-                        <span key={idx} className="px-3 py-1 bg-slate-50 border rounded-lg text-xs font-semibold text-slate-700">
+                        <span key={idx} className="px-3 py-1 bg-slate-50 border border-slate-200 rounded-lg text-xs font-semibold text-slate-700">
                           {s}
                         </span>
                       ))}
@@ -292,15 +291,15 @@ export default function ProductsView({ onNavigate, selectedProductId, onSelectPr
                           document.getElementById('b2b-rapid-inquiry')?.scrollIntoView({ behavior: 'smooth' });
                         }, 200);
                       }}
-                      className="px-6 py-3 rounded-xl bg-brand-primary hover:bg-brand-secondary text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
+                      className="px-6 py-3 rounded-lg bg-brand-primary hover:bg-brand-primary/90 text-white font-bold text-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
                     >
                       Request Technical Quotation
-                      <ArrowRight className="w-4 h-4 text-brand-accent" />
+                      <ArrowRight className="w-4 h-4" />
                     </button>
                     
                     <button
                       onClick={() => onSelectProduct(null)}
-                      className="px-6 py-3 rounded-xl border border-slate-300 text-slate-600 hover:bg-slate-100 font-semibold text-sm text-center cursor-pointer"
+                      className="px-6 py-3 rounded-lg border border-slate-200 hover:bg-slate-50 rounded-lg text-slate-700 font-semibold text-sm text-center cursor-pointer"
                     >
                       Return to Showroom
                     </button>
@@ -314,10 +313,8 @@ export default function ProductsView({ onNavigate, selectedProductId, onSelectPr
           )}
 
           {/* B2B BROCHURE MOCK DOWNLOAD */}
-          <div className="mt-20 p-8 sm:p-12 rounded-3xl bg-slate-900 text-white grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border border-slate-800 shadow-xl text-left relative overflow-hidden">
+          <div className="mt-20 p-8 sm:p-12 rounded-2xl bg-brand-secondary text-white grid grid-cols-1 lg:grid-cols-12 gap-8 items-center text-left">
             
-            <div className="absolute top-0 right-0 w-32 h-32 bg-brand-primary/10 rounded-full blur-2xl"></div>
-
             <div className="lg:col-span-7 space-y-4">
               <span className="text-xs font-bold text-brand-accent uppercase tracking-widest block">Technical Documentation</span>
               <h3 className="font-display font-bold text-2xl sm:text-3xl leading-tight">
@@ -336,21 +333,21 @@ export default function ProductsView({ onNavigate, selectedProductId, onSelectPr
                     value={brochureEmail}
                     onChange={(e) => setBrochureEmail(e.target.value)}
                     placeholder="Enter Corporate Email"
-                    className="w-full px-4 py-3 bg-slate-800 text-white rounded-xl border border-slate-700 text-xs focus:outline-none focus:border-brand-accent transition-all pr-10"
+                    className="w-full px-4 py-3 bg-white/10 text-white rounded-xl border border-white/20 text-xs focus:outline-none focus:border-brand-accent transition-all pr-10"
                     required
                   />
-                  <FileText className="absolute right-3.5 top-3.5 w-4 h-4 text-slate-500" />
+                  <FileText className="absolute right-3.5 top-3.5 w-4 h-4 text-slate-400" />
                 </div>
                 
                 <button
                   type="submit"
-                  className="w-full py-3 rounded-xl bg-brand-accent hover:bg-brand-accent/90 text-brand-secondary font-bold text-xs shadow-md transition-all cursor-pointer"
+                  className="w-full py-3 rounded-xl bg-brand-accent hover:bg-brand-accent/90 text-brand-secondary font-bold text-xs transition-all cursor-pointer"
                 >
                   Request Technical Brochure PDF
                 </button>
 
                 {downloadSuccess && (
-                  <div className="p-3 bg-brand-accent/15 border border-brand-accent/30 rounded-xl flex items-center gap-2 text-brand-accent text-xs font-semibold">
+                  <div className="p-3 bg-brand-accent/10 border border-brand-accent/20 rounded-xl flex items-center gap-2 text-brand-accent text-xs font-semibold">
                     <CheckCircle2 className="w-4 h-4 shrink-0" />
                     <span>PDF Sent. Check your inbox and spam folder shortly.</span>
                   </div>
@@ -362,9 +359,9 @@ export default function ProductsView({ onNavigate, selectedProductId, onSelectPr
 
           {/* INLINE B2B RAPID INQUIRY FORM */}
           <div id="b2b-rapid-inquiry" className="mt-20 pt-16 border-t border-slate-100 text-left">
-            <div className="max-w-3xl mx-auto space-y-8 bg-slate-50 border border-slate-200/60 rounded-3xl p-6 sm:p-10 shadow-sm">
+            <div className="max-w-3xl mx-auto space-y-8 bg-white border border-slate-200 rounded-2xl p-6 sm:p-10">
               <div className="space-y-2">
-                <span className="text-xs font-bold text-brand-primary uppercase tracking-wider block">B2B Quick Quote</span>
+                <span className="text-brand-primary bg-brand-primary/5 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider inline-block">B2B Quick Quote</span>
                 <h3 className="font-display font-bold text-2xl text-brand-secondary">
                   Instant Wholesale & Private Label Query
                 </h3>
@@ -381,7 +378,7 @@ export default function ProductsView({ onNavigate, selectedProductId, onSelectPr
                     type="text"
                     value={formData.name}
                     onChange={e => setFormData(prev => ({ ...prev, name: e.target.value }))}
-                    className="w-full px-4 py-2.5 bg-white border rounded-xl text-xs focus:outline-none focus:border-brand-primary transition-all"
+                    className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-brand-primary transition-all"
                     placeholder="Enter full name"
                     required
                   />
@@ -393,7 +390,7 @@ export default function ProductsView({ onNavigate, selectedProductId, onSelectPr
                     type="email"
                     value={formData.email}
                     onChange={e => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                    className="w-full px-4 py-2.5 bg-white border rounded-xl text-xs focus:outline-none focus:border-brand-primary transition-all"
+                    className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-brand-primary transition-all"
                     placeholder="name@company.com"
                     required
                   />
@@ -405,7 +402,7 @@ export default function ProductsView({ onNavigate, selectedProductId, onSelectPr
                     type="tel"
                     value={formData.phone}
                     onChange={e => setFormData(prev => ({ ...prev, phone: e.target.value }))}
-                    className="w-full px-4 py-2.5 bg-white border rounded-xl text-xs focus:outline-none focus:border-brand-primary transition-all"
+                    className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-brand-primary transition-all"
                     placeholder="+91 XXXXX XXXXX"
                     required
                   />
@@ -417,7 +414,7 @@ export default function ProductsView({ onNavigate, selectedProductId, onSelectPr
                     type="text"
                     value={formData.company}
                     onChange={e => setFormData(prev => ({ ...prev, company: e.target.value }))}
-                    className="w-full px-4 py-2.5 bg-white border rounded-xl text-xs focus:outline-none focus:border-brand-primary transition-all"
+                    className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-brand-primary transition-all"
                     placeholder="E.g. Grand Regency Hotels"
                     required
                   />
@@ -428,7 +425,7 @@ export default function ProductsView({ onNavigate, selectedProductId, onSelectPr
                   <select
                     value={formData.product}
                     onChange={e => setFormData(prev => ({ ...prev, product: e.target.value }))}
-                    className="w-full px-4 py-2.5 bg-white border rounded-xl text-xs focus:outline-none focus:border-brand-primary transition-all"
+                    className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-brand-primary transition-all"
                     required
                   >
                     <option value="">Select product category...</option>
@@ -445,7 +442,7 @@ export default function ProductsView({ onNavigate, selectedProductId, onSelectPr
                   <select
                     value={formData.quantity}
                     onChange={e => setFormData(prev => ({ ...prev, quantity: e.target.value }))}
-                    className="w-full px-4 py-2.5 bg-white border rounded-xl text-xs focus:outline-none focus:border-brand-primary transition-all"
+                    className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-brand-primary transition-all"
                     required
                   >
                     <option value="1000">1,000 - 5,000 Units</option>
@@ -461,7 +458,7 @@ export default function ProductsView({ onNavigate, selectedProductId, onSelectPr
                     rows={3}
                     value={formData.message}
                     onChange={e => setFormData(prev => ({ ...prev, message: e.target.value }))}
-                    className="w-full px-4 py-2.5 bg-white border rounded-xl text-xs focus:outline-none focus:border-brand-primary transition-all"
+                    className="w-full px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-brand-primary transition-all"
                     placeholder="E.g. We require our custom logo embossed on a 1-litre rectangular spiral neck PET bottle..."
                   />
                 </div>
@@ -469,7 +466,7 @@ export default function ProductsView({ onNavigate, selectedProductId, onSelectPr
                 <div className="sm:col-span-2 pt-2">
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-xl bg-brand-secondary hover:bg-brand-primary text-white text-xs font-bold shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full py-3.5 rounded-lg bg-brand-primary hover:bg-brand-primary/90 text-white text-xs font-bold transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     Submit Quotation Inquiry
                     <Send className="w-3.5 h-3.5" />
@@ -477,7 +474,7 @@ export default function ProductsView({ onNavigate, selectedProductId, onSelectPr
                 </div>
 
                 {submitSuccess && (
-                  <div className="sm:col-span-2 p-4 bg-brand-accent/15 border border-brand-accent/30 rounded-2xl flex items-start gap-2.5 text-brand-accent text-xs font-semibold text-left">
+                  <div className="sm:col-span-2 p-4 bg-brand-accent/10 border border-brand-accent/20 rounded-2xl flex items-start gap-2.5 text-brand-accent text-xs font-semibold text-left">
                     <CheckCircle2 className="w-5 h-5 shrink-0 mt-0.5" />
                     <div>
                       <span className="block font-bold">Inquiry Transmitted Successfully</span>

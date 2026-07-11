@@ -28,7 +28,7 @@ export default function SustainabilityView({ onNavigate }: SustainabilityViewPro
     },
     {
       title: 'Clean Solar Energy',
-      desc: 'Over 40% of our factory’s mechanical electrical requirements are drawn from in-house high-efficiency photovoltaic solar roofs, cutting annual grid reliance.',
+      desc: 'Over 40% of our factory\'s mechanical electrical requirements are drawn from in-house high-efficiency photovoltaic solar roofs, cutting annual grid reliance.',
       icon: <Sun className="w-8 h-8 text-amber-500" />
     },
     {
@@ -39,13 +39,12 @@ export default function SustainabilityView({ onNavigate }: SustainabilityViewPro
   ];
 
   return (
-    <div className="relative">
+    <div>
       
       {/* Page Header */}
-      <section className="bg-gradient-to-br from-slate-900 to-brand-secondary text-white py-16 px-4 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-brand-primary/15 pointer-events-none"></div>
-        <div className="max-w-4xl mx-auto space-y-4 relative z-10">
-          <span className="text-xs font-bold uppercase tracking-widest text-brand-accent bg-brand-accent/10 px-3 py-1 rounded-full">
+      <section className="bg-brand-secondary text-white py-16 px-4 text-center">
+        <div className="max-w-4xl mx-auto space-y-4">
+          <span className="text-xs font-semibold uppercase tracking-wider text-brand-accent bg-white/10 px-3 py-1 rounded-full">
             Sustainability & ESG
           </span>
           <h1 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight leading-tight">
@@ -63,7 +62,7 @@ export default function SustainabilityView({ onNavigate }: SustainabilityViewPro
           
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-20">
             <div className="lg:col-span-6 space-y-4">
-              <span className="text-xs font-bold text-brand-primary uppercase tracking-wider">Circular Economy Strategy</span>
+              <span className="text-xs font-semibold text-brand-primary uppercase tracking-wider">Circular Economy Strategy</span>
               <h2 className="font-display font-bold text-3xl text-brand-secondary leading-tight">
                 Pioneering a Sustainable Carbon-Neutral Future
               </h2>
@@ -77,13 +76,13 @@ export default function SustainabilityView({ onNavigate }: SustainabilityViewPro
               <div className="pt-4 flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={() => onNavigate(NavSection.Products)}
-                  className="px-5 py-3 rounded-xl bg-brand-primary hover:bg-brand-secondary text-white text-xs font-bold transition-all cursor-pointer"
+                  className="px-5 py-3 rounded-lg bg-brand-primary hover:bg-brand-primary/90 text-white text-xs font-bold transition-all cursor-pointer"
                 >
                   View Eco-Friendly Catalog
                 </button>
                 <button
                   onClick={() => onNavigate(NavSection.Contact)}
-                  className="px-5 py-3 rounded-xl border text-slate-600 hover:bg-slate-50 text-xs font-bold transition-all cursor-pointer"
+                  className="px-5 py-3 rounded-lg border text-slate-600 hover:bg-slate-50 text-xs font-bold transition-all cursor-pointer"
                 >
                   Consult ESG Parameters
                 </button>
@@ -92,25 +91,25 @@ export default function SustainabilityView({ onNavigate }: SustainabilityViewPro
 
             <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
               
-              <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100 space-y-2">
+              <div className="p-6 bg-white border border-slate-200 rounded-xl space-y-2">
                 <span className="text-4xl font-display font-black text-brand-accent">120%</span>
                 <strong className="text-sm text-brand-secondary block">Water Recharge Index</strong>
                 <p className="text-xs text-slate-500 leading-relaxed">We harvest and recharge more groundwater back into subterranean aquifers than we extract.</p>
               </div>
 
-              <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100 space-y-2">
+              <div className="p-6 bg-white border border-slate-200 rounded-xl space-y-2">
                 <span className="text-4xl font-display font-black text-brand-accent">-65%</span>
                 <strong className="text-sm text-brand-secondary block">CO2 Carbon Footprint</strong>
                 <p className="text-xs text-slate-500 leading-relaxed">rPET (Recycled PET) packaging solutions significantly reduce raw plastic greenhouse gases.</p>
               </div>
 
-              <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100 space-y-2">
+              <div className="p-6 bg-white border border-slate-200 rounded-xl space-y-2">
                 <span className="text-4xl font-display font-black text-brand-accent">40%</span>
                 <strong className="text-sm text-brand-secondary block">Photovoltaic Solar Roofs</strong>
                 <p className="text-xs text-slate-500 leading-relaxed">Four-tenths of our entire plant power is generated from high-capacity solar panels.</p>
               </div>
 
-              <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100 space-y-2">
+              <div className="p-6 bg-white border border-slate-200 rounded-xl space-y-2">
                 <span className="text-4xl font-display font-black text-brand-accent">ZLD</span>
                 <strong className="text-sm text-brand-secondary block">Zero Liquid Waste Discharge</strong>
                 <p className="text-xs text-slate-500 leading-relaxed">Absolutely no industrial liquid waste is discharged into external environment aquifers.</p>
@@ -122,7 +121,7 @@ export default function SustainabilityView({ onNavigate }: SustainabilityViewPro
           {/* ESG Initiatives details */}
           <div className="border-t border-slate-100 pt-16">
             <div className="text-center max-w-2xl mx-auto mb-16 space-y-2">
-              <span className="text-xs font-bold uppercase tracking-widest text-brand-primary bg-brand-primary/5 px-3 py-1 rounded-full">
+              <span className="text-xs font-semibold uppercase tracking-wider text-brand-primary bg-brand-primary/5 px-3 py-1 rounded-full">
                 Green Initiatives
               </span>
               <h3 className="font-display font-bold text-2xl text-brand-secondary">Commitments in Action</h3>
@@ -131,8 +130,8 @@ export default function SustainabilityView({ onNavigate }: SustainabilityViewPro
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {initiatives.map((item, idx) => (
-                <div key={idx} className="p-6 bg-white border border-slate-200/60 rounded-2xl text-left space-y-3 shadow-sm hover:shadow-md transition-all">
-                  <div className="p-3 bg-slate-50 rounded-xl w-fit border border-slate-100">
+                <div key={idx} className="p-6 bg-white border border-slate-200 rounded-xl text-left space-y-3 hover:shadow-sm transition-all">
+                  <div className="p-3 bg-brand-light rounded-xl w-fit border border-slate-200">
                     {item.icon}
                   </div>
                   <h4 className="font-bold text-lg text-brand-secondary">{item.title}</h4>
@@ -146,9 +145,9 @@ export default function SustainabilityView({ onNavigate }: SustainabilityViewPro
       </section>
 
       {/* CSR / Social Impact Call-out */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 border-y border-slate-200/50 text-left">
-        <div className="max-w-4xl mx-auto bg-white rounded-3xl border border-slate-200/60 p-8 sm:p-12 shadow-sm space-y-6">
-          <span className="text-xs font-bold text-brand-primary uppercase tracking-wider block">Community Support (CSR)</span>
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-brand-light border-y border-slate-200/50 text-left">
+        <div className="max-w-4xl mx-auto bg-white rounded-2xl border border-slate-200 p-8 sm:p-12 space-y-6">
+          <span className="text-xs font-semibold text-brand-primary uppercase tracking-wider block">Community Support (CSR)</span>
           <h3 className="font-display font-bold text-2xl text-brand-secondary leading-tight">Empowering Rural Schoolrooms & Health Centres</h3>
           <p className="text-slate-600 text-sm leading-relaxed">
             As a leading manufacturing company, we believe our social footprint is as important as our carbon metrics. Through our corporate foundation, we provide free clean drinking water filtration systems, solar arrays, and high-density sanitizing filters to 45+ schools and regional primary health centers in the rural regions of Maharashtra. We also lead local plastic collection drives, converting gathered plastic into school desk supplies.
@@ -156,9 +155,9 @@ export default function SustainabilityView({ onNavigate }: SustainabilityViewPro
           <div className="pt-4 border-t">
             <span className="text-xs font-semibold text-slate-500 block mb-2">Our partners:</span>
             <div className="flex flex-wrap gap-4 text-xs font-bold text-brand-secondary">
-              <span className="px-3 py-1 bg-slate-50 rounded-lg">✓ UNICEF Clean Water Program</span>
-              <span className="px-3 py-1 bg-slate-50 rounded-lg">✓ Maharashtra Rural Development Foundation</span>
-              <span className="px-3 py-1 bg-slate-50 rounded-lg">✓ Green Plastics Circular Network</span>
+              <span className="px-3 py-1 bg-brand-light rounded-lg">✓ UNICEF Clean Water Program</span>
+              <span className="px-3 py-1 bg-brand-light rounded-lg">✓ Maharashtra Rural Development Foundation</span>
+              <span className="px-3 py-1 bg-brand-light rounded-lg">✓ Green Plastics Circular Network</span>
             </div>
           </div>
         </div>

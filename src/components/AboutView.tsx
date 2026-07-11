@@ -18,7 +18,7 @@ export default function AboutView({ onNavigate }: AboutViewProps) {
   const values = [
     {
       title: 'Uncompromising Safety',
-      desc: 'We operate under sterile cleanroom protocols. If it isn’t absolutely pure, it doesn’t leave our loading bays.',
+      desc: "We operate under sterile cleanroom protocols. If it isn't absolutely pure, it doesn't leave our loading bays.",
       icon: <ShieldAlert className="w-8 h-8 text-brand-primary" />
     },
     {
@@ -33,7 +33,7 @@ export default function AboutView({ onNavigate }: AboutViewProps) {
     },
     {
       title: 'Collaborative Growth',
-      desc: 'Treating our private label clients as long-term joint ventures, supporting them with legal standards & logistics.',
+      desc: "Treating our private label clients as long-term joint ventures, supporting them with legal standards & logistics.",
       icon: <Users className="w-8 h-8 text-brand-accent" />
     }
   ];
@@ -91,10 +91,9 @@ export default function AboutView({ onNavigate }: AboutViewProps) {
     <div className="relative">
       
       {/* Visual Header Banner */}
-      <section className="bg-gradient-to-br from-slate-900 to-brand-secondary text-white py-16 px-4 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-brand-primary/10 pointer-events-none"></div>
-        <div className="max-w-4xl mx-auto space-y-4 relative z-10">
-          <span className="text-xs font-bold uppercase tracking-widest text-brand-accent bg-brand-accent/10 px-3 py-1 rounded-full">
+      <section className="bg-brand-secondary text-white py-16 px-4 text-center">
+        <div className="max-w-4xl mx-auto space-y-4">
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-accent bg-white/10 px-3 py-1 rounded-full">
             Our Corporate Identity
           </span>
           <h1 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight leading-tight">
@@ -126,7 +125,7 @@ export default function AboutView({ onNavigate }: AboutViewProps) {
 
             <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
               
-              <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100 flex flex-col justify-between space-y-4">
+              <div className="p-6 bg-white border border-slate-200 rounded-xl flex flex-col justify-between space-y-4">
                 <Target className="w-10 h-10 text-brand-primary" />
                 <div>
                   <h3 className="font-display font-bold text-base text-brand-secondary mb-1">Our Mission</h3>
@@ -134,7 +133,7 @@ export default function AboutView({ onNavigate }: AboutViewProps) {
                 </div>
               </div>
 
-              <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100 flex flex-col justify-between space-y-4">
+              <div className="p-6 bg-white border border-slate-200 rounded-xl flex flex-col justify-between space-y-4">
                 <Eye className="w-10 h-10 text-brand-accent" />
                 <div>
                   <h3 className="font-display font-bold text-base text-brand-secondary mb-1">Our Vision</h3>
@@ -156,7 +155,7 @@ export default function AboutView({ onNavigate }: AboutViewProps) {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {values.map((v, idx) => (
-                <div key={idx} className="p-6 bg-white border border-slate-200/60 rounded-xl shadow-sm space-y-3">
+                <div key={idx} className="p-6 bg-white border border-slate-200 rounded-xl space-y-3">
                   <div className="p-2 bg-slate-50 rounded-lg w-fit border border-slate-100">
                     {v.icon}
                   </div>
@@ -171,7 +170,7 @@ export default function AboutView({ onNavigate }: AboutViewProps) {
       </section>
 
       {/* Interactive Growth Timeline */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 border-y border-slate-200/50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-brand-light">
         <div className="max-w-7xl mx-auto">
           
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-2">
@@ -217,7 +216,7 @@ export default function AboutView({ onNavigate }: AboutViewProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {leaders.map((l, idx) => (
-              <div key={idx} className="bg-white rounded-2xl border border-slate-200/50 overflow-hidden shadow-sm hover:shadow-md transition-all">
+              <div key={idx} className="bg-white rounded-xl border border-slate-200 overflow-hidden hover:border-slate-300 transition-colors">
                 <div className="h-64 overflow-hidden relative">
                   <img 
                     src={l.img} 
@@ -236,7 +235,7 @@ export default function AboutView({ onNavigate }: AboutViewProps) {
           </div>
 
           {/* Core CSR Call-out banner */}
-          <div className="mt-20 p-8 rounded-2xl bg-brand-secondary text-white flex flex-col md:flex-row items-center justify-between gap-6 border border-white/10 shadow-lg">
+          <div className="mt-20 p-8 rounded-2xl bg-brand-secondary text-white flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-2 text-left max-w-2xl">
               <span className="text-xs uppercase font-bold text-brand-accent tracking-widest block">Ethical Operations</span>
               <h3 className="font-display font-bold text-xl">Protecting Our Water Ecosystems</h3>

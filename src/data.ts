@@ -143,7 +143,7 @@ export const PRODUCTS_DATA: Product[] = [
     },
     sizes: ['60ml Pharma', '200ml Round/Square', '250ml Juice Sleek', '500ml Ribbed Water', '1L Premium Spiral', '2L Square Heavy', '5L Easy-Grip Jar'],
     applications: ['Beverage Bottling Plants (Water, Juices, Soda)', 'Pharmaceutical Syrups & Liquids', 'Edible Oil & Food Packaging', 'Cosmetics, Shampoos & Handwash Bottling'],
-    imageUrl: 'https://images.unsplash.com/photo-1608889175123-8ec330b86f84?auto=format&fit=crop&q=80&w=800'
+    imageUrl: 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&q=80&w=800'
   },
   {
     id: 'eco-packaging',

@@ -45,10 +45,9 @@ export default function BlogView({ onNavigate }: BlogViewProps) {
     <div className="relative">
       
       {/* Visual Page Header */}
-      <section className="bg-gradient-to-br from-slate-900 to-brand-secondary text-white py-16 px-4 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-brand-primary/15 pointer-events-none"></div>
-        <div className="max-w-4xl mx-auto space-y-4 relative z-10">
-          <span className="text-xs font-bold uppercase tracking-widest text-brand-accent bg-brand-accent/10 px-3 py-1 rounded-full">
+      <section className="bg-brand-secondary text-white py-16 px-4 text-center">
+        <div className="max-w-4xl mx-auto space-y-4">
+          <span className="text-brand-accent bg-white/10 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">
             Knowledge Center
           </span>
           <h1 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight leading-tight">
@@ -78,7 +77,7 @@ export default function BlogView({ onNavigate }: BlogViewProps) {
                     value={searchTerm}
                     onChange={e => setSearchTerm(e.target.value)}
                     placeholder="Search articles..."
-                    className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border rounded-xl text-xs focus:outline-none focus:border-brand-primary transition-all text-slate-700"
+                    className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-lg text-xs focus:outline-none focus:border-brand-primary text-slate-700"
                   />
                   <Search className="absolute left-3.5 top-3.5 w-4 h-4 text-slate-400" />
                 </div>
@@ -89,10 +88,10 @@ export default function BlogView({ onNavigate }: BlogViewProps) {
                     <button
                       key={cat}
                       onClick={() => setSelectedCategory(cat)}
-                      className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                      className={`px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
                         selectedCategory === cat
-                          ? 'bg-brand-primary text-white shadow-md shadow-brand-primary/10'
-                          : 'bg-slate-50 text-slate-600 hover:bg-slate-100 border border-slate-200/50'
+                          ? 'bg-brand-primary text-white'
+                          : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
                       }`}
                     >
                       {cat}
@@ -108,7 +107,7 @@ export default function BlogView({ onNavigate }: BlogViewProps) {
                   {filteredPosts.map((post) => (
                     <div 
                       key={post.id}
-                      className="bg-white rounded-2xl border border-slate-200/60 overflow-hidden shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group"
+                      className="bg-white rounded-xl border border-slate-200 overflow-hidden transition-all flex flex-col justify-between group hover:-translate-y-0.5"
                     >
                       <div>
                         <div className="h-52 overflow-hidden relative">
@@ -162,7 +161,7 @@ export default function BlogView({ onNavigate }: BlogViewProps) {
                   <p className="text-slate-500 text-sm font-semibold">No blog articles match your filters.</p>
                   <button
                     onClick={() => { setSearchTerm(''); setSelectedCategory('All'); }}
-                    className="px-4 py-2 bg-slate-100 text-slate-700 text-xs font-bold rounded-xl hover:bg-slate-200 transition-all"
+                    className="px-4 py-2 bg-slate-100 text-slate-700 text-xs font-bold rounded-lg hover:bg-slate-200 transition-all"
                   >
                     Reset Filters
                   </button>
@@ -174,7 +173,7 @@ export default function BlogView({ onNavigate }: BlogViewProps) {
 
           {/* SINGLE ARTICLE DETAIL VIEW (Reading Overlay) */}
           {readingPost && (
-            <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-10 relative space-y-8 max-w-4xl mx-auto">
+            <div className="bg-brand-light border border-slate-200 rounded-2xl p-6 sm:p-10 relative space-y-8 max-w-4xl mx-auto">
               
               {/* Back to Blog */}
               <button
@@ -194,7 +193,7 @@ export default function BlogView({ onNavigate }: BlogViewProps) {
 
               {/* Title group */}
               <div className="space-y-4 text-left">
-                <span className="px-3 py-1 bg-brand-primary/10 text-brand-primary text-xs font-bold rounded-lg uppercase tracking-wider">
+                <span className="text-brand-primary bg-brand-primary/5 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider">
                   {readingPost.category}
                 </span>
 
@@ -250,7 +249,7 @@ export default function BlogView({ onNavigate }: BlogViewProps) {
                 <div className="flex gap-2.5 w-full sm:w-auto">
                   <button
                     onClick={handleCopyLink}
-                    className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border hover:bg-slate-100 text-xs text-slate-600 transition-all font-semibold cursor-pointer"
+                    className="flex-1 sm:flex-initial flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border hover:bg-slate-100 text-xs text-slate-600 transition-all font-semibold cursor-pointer"
                   >
                     <Share2 className="w-4 h-4" /> Share Article
                   </button>
@@ -258,7 +257,7 @@ export default function BlogView({ onNavigate }: BlogViewProps) {
                     onClick={() => {
                       alert('Article Bookmarked to your Browser Cache!');
                     }}
-                    className="px-4 py-2.5 rounded-xl bg-brand-primary text-white hover:bg-brand-secondary text-xs font-semibold transition-all cursor-pointer"
+                    className="px-4 py-2.5 rounded-lg bg-brand-primary hover:bg-brand-primary/90 text-white text-xs font-semibold transition-all cursor-pointer"
                   >
                     Save Post
                   </button>

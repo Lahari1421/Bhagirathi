@@ -21,7 +21,6 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [statsCounter, setStatsCounter] = useState<number[]>(COMPANY_STATS.map(() => 0));
 
-  // Run a smooth animated counter for company statistics
   useEffect(() => {
     const intervals = COMPANY_STATS.map((stat, idx) => {
       const increment = Math.ceil(stat.value / 30);
@@ -47,7 +46,6 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
     setActiveTestimonial((prev) => (prev - 1 + TESTIMONIALS_DATA.length) % TESTIMONIALS_DATA.length);
   };
 
-  // Industries list
   const industries = [
     { name: 'Elite Retail Channels', icon: <TrendingUp className="w-6 h-6 text-brand-primary" />, desc: 'Hypermarkets & retail hubs' },
     { name: 'Five-Star Hotels', icon: <Star className="w-6 h-6 text-brand-accent" />, desc: 'Bespoke custom glass bottling' },
@@ -57,7 +55,6 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
     { name: 'Export Partners', icon: <Factory className="w-6 h-6 text-brand-accent" />, desc: 'Seaworthy high-density wrapping' }
   ];
 
-  // Client list for the scrolling marquee
   const clients = [
     'Tata Consumer Products', 'Grand Regency Hotels', 'Pacific Blue Cruise Lines', 
     'Marriott Suites', 'Spice Air Logistics', 'Vitality Beverage Co.', 
@@ -66,39 +63,22 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
   ];
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="overflow-hidden">
       
-      {/* 1. HERO BANNER SECTION (Premium animated dark corporate layout) */}
-      <section className="relative min-h-[90vh] bg-slate-900 text-white flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        
-        {/* Abstract animated water particles overlay in background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-brand-secondary/90 via-slate-900 to-brand-primary/50 z-0"></div>
-        
-        <div className="absolute top-1/4 left-1/12 w-96 h-96 bg-brand-primary/20 rounded-full blur-[120px] animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/12 w-96 h-96 bg-brand-accent/15 rounded-full blur-[120px]"></div>
-
-        {/* Diagonal high-tech line accent */}
-        <div className="absolute inset-0 opacity-10 pointer-events-none">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <line x1="0" y1="100%" x2="100%" y2="0" stroke="white" strokeWidth="2" strokeDasharray="5,15" />
-            <circle cx="20%" cy="30%" r="4" fill="white" className="animate-ping" />
-            <circle cx="80%" cy="70%" r="6" fill="white" />
-          </svg>
-        </div>
-
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10 w-full">
+      {/* 1. HERO BANNER SECTION */}
+      <section className="relative min-h-[90vh] bg-brand-secondary text-white flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
           
-          {/* Hero text panel */}
           <div className="lg:col-span-7 space-y-6 text-left">
             
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs font-semibold text-brand-accent">
-              <span className="w-2 h-2 rounded-full bg-brand-accent animate-ping"></span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs font-semibold text-brand-accent">
+              <span className="w-2 h-2 rounded-full bg-brand-accent"></span>
               Pioneering High-Precision Water Bottling Since 2008
             </div>
 
             <h1 className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-tight">
               Manufacturing Excellence. <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent via-cyan-400 to-white">
+              <span className="text-brand-accent">
                 Delivering Pure Quality.
               </span>
             </h1>
@@ -110,21 +90,20 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <button
                 onClick={() => onNavigate(NavSection.Products)}
-                className="px-8 py-4 rounded-xl text-white font-semibold bg-brand-primary hover:bg-brand-primary/95 hover:shadow-lg hover:shadow-brand-primary/20 transition-all text-center flex items-center justify-center gap-2 group cursor-pointer"
+                className="px-8 py-4 rounded-lg text-white font-semibold bg-brand-primary hover:bg-brand-primary/90 transition-all text-center flex items-center justify-center gap-2 group cursor-pointer"
               >
                 Explore Products
-                <ArrowRight className="w-5 h-5 text-brand-accent group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
               
               <button
                 onClick={() => onNavigate(NavSection.Contact)}
-                className="px-8 py-4 rounded-xl text-white font-semibold bg-white/10 hover:bg-white/15 border border-white/20 backdrop-blur-sm transition-all text-center flex items-center justify-center gap-2 hover:border-white/40 cursor-pointer"
+                className="px-8 py-4 rounded-lg text-white font-semibold border border-white/20 hover:bg-white/10 transition-all text-center flex items-center justify-center gap-2 cursor-pointer"
               >
                 Request a Quote
               </button>
             </div>
 
-            {/* Quick credentials inside Hero */}
             <div className="pt-8 border-t border-white/10 flex flex-wrap gap-6 text-xs text-slate-400">
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-brand-accent" />
@@ -142,30 +121,23 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
 
           </div>
 
-          {/* Hero visual glass card mockup */}
           <div className="lg:col-span-5 relative flex justify-center">
-            
-            <div className="relative w-80 h-96 sm:w-96 sm:h-[420px] rounded-2xl bg-gradient-to-tr from-slate-800 to-slate-900 border border-white/10 shadow-2xl p-6 flex flex-col justify-between overflow-hidden">
-              
-              {/* Glass glowing fluid ball */}
-              <div className="absolute -top-12 -right-12 w-48 h-48 bg-gradient-to-br from-cyan-400 to-brand-primary rounded-full blur-[40px] opacity-30"></div>
+            <div className="relative w-80 h-96 sm:w-96 sm:h-[420px] rounded-2xl bg-slate-800 border border-white/10 p-6 flex flex-col justify-between overflow-hidden">
               
               <div className="flex justify-between items-start relative z-10">
                 <span className="text-xs tracking-widest font-bold uppercase text-slate-400">Manufacturing Live</span>
                 <span className="px-2.5 py-0.5 rounded bg-brand-accent/20 text-brand-accent font-semibold text-[10px] uppercase border border-brand-accent/30 tracking-wider">Sterile Block</span>
               </div>
 
-              {/* Central Graphic representing bottle purity */}
               <div className="flex flex-col items-center justify-center my-6 relative z-10">
-                <div className="relative flex items-center justify-center w-24 h-24 rounded-full bg-brand-primary/10 border border-white/10 animate-bounce">
+                <div className="relative flex items-center justify-center w-24 h-24 rounded-full bg-brand-primary/10 border border-white/10">
                   <Droplet className="w-12 h-12 text-cyan-400 fill-cyan-400/10" />
                 </div>
                 <span className="font-display font-bold text-xl mt-4">Pure Water Matrix</span>
                 <span className="text-xs text-slate-400 mt-1">RO + UV + Ozonization (0.2μ)</span>
               </div>
 
-              {/* Mini Glass Stats Block */}
-              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-xl p-3 flex justify-between relative z-10 text-xs text-slate-300">
+              <div className="bg-white/5 border border-white/10 rounded-xl p-3 flex justify-between relative z-10 text-xs text-slate-300">
                 <div>
                   <span className="block text-[10px] text-slate-500 uppercase">Hourly Output</span>
                   <strong className="text-white text-sm">24,000 Bottles</strong>
@@ -176,29 +148,53 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
                 </div>
               </div>
 
-              {/* Ambient decoration */}
-              <div className="absolute -bottom-10 left-10 w-24 h-24 bg-brand-accent/20 rounded-full blur-[30px]"></div>
-
             </div>
-
           </div>
 
         </div>
 
       </section>
 
-      {/* 2. STATS SECTION (Animated statistics grid) */}
-      <section className="bg-gradient-to-r from-brand-secondary to-slate-900 text-white py-12 px-4 sm:px-6 lg:px-8 relative z-20 shadow-xl border-y border-white/5">
+      {/* 1B. OUR STORY CINEMATIC TEASER */}
+      <section className="relative py-24 sm:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-brand-secondary via-[#0c1220] to-brand-light overflow-hidden">
+        <div className="story-light-rays" />
+        <div className="max-w-4xl mx-auto text-center relative z-10 space-y-10">
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-amber-300/80 tracking-wider uppercase">
+            Our Origin
+          </span>
+          <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-white tracking-tight leading-tight">
+            Before the factory. Before the brand.
+            <br />
+            <span className="text-amber-200/80">There was a story.</span>
+          </h2>
+          <p className="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto font-light leading-relaxed">
+            Inspired by King Bhagiratha's devotion, a mother's wisdom, and a son's dream — 
+            discover the journey that gave birth to Bhagirathi Industries.
+          </p>
+          <div className="pt-4">
+            <button
+              onClick={() => onNavigate(NavSection.Story)}
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-amber-400/10 border border-amber-400/20 text-amber-200 font-semibold text-sm hover:bg-amber-400/20 transition-all group cursor-pointer"
+            >
+              Experience the Journey
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* 2. STATS SECTION */}
+      <section className="bg-brand-light text-brand-dark py-12 px-4 sm:px-6 lg:px-8 relative z-20 border-b border-slate-200">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
             {COMPANY_STATS.map((stat, idx) => (
-              <div key={idx} className="p-4 border-r border-white/10 last:border-0">
-                <div className="text-3xl lg:text-4xl font-display font-extrabold text-brand-accent">
+              <div key={idx} className="p-4 border-r border-slate-200 last:border-0">
+                <div className="text-3xl lg:text-4xl font-display font-extrabold text-brand-primary">
                   {statsCounter[idx]}
                   <span>{stat.suffix}</span>
                 </div>
-                <div className="text-sm font-semibold text-white mt-1">{stat.label}</div>
-                <div className="text-[11px] text-slate-400 mt-0.5 leading-tight">{stat.description}</div>
+                <div className="text-sm font-semibold text-brand-secondary mt-1">{stat.label}</div>
+                <div className="text-[11px] text-slate-500 mt-0.5 leading-tight">{stat.description}</div>
               </div>
             ))}
           </div>
@@ -209,10 +205,8 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          <div className="lg:col-span-6 relative">
-            <div className="absolute inset-0 bg-brand-primary/5 rounded-2xl -rotate-2 transform scale-105"></div>
-            <div className="relative bg-slate-50 rounded-2xl p-8 border border-slate-200/50 shadow-sm overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-brand-primary/10 rounded-full blur-2xl"></div>
+          <div className="lg:col-span-6">
+            <div className="relative bg-slate-50 rounded-2xl p-8 border border-slate-200 overflow-hidden">
               
               <span className="text-xs uppercase font-bold text-brand-primary tracking-widest block mb-2">Our Mission Statement</span>
               <h3 className="font-display font-bold text-2xl text-brand-secondary mb-4 leading-tight">
@@ -222,7 +216,6 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
                 Bhagirathi Industries Pvt. Ltd. was founded with a singular purpose: to supply water purity at industrial scale while pioneering sustainable, zero-waste PET and carton solutions. Across our advanced cleanrooms, automation prevents human touch, keeping biological hazards at absolute zero.
               </p>
 
-              {/* Timeline list */}
               <div className="space-y-4">
                 <div className="flex gap-3">
                   <div className="w-6 h-6 rounded-full bg-brand-accent/20 flex items-center justify-center text-brand-accent text-xs font-bold shrink-0 mt-0.5">✔</div>
@@ -254,27 +247,26 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
               In manufacturing, consistency is everything. Bhagirathi Industries stands apart by combining top-tier European bottling machinery with a team of skilled chemical engineers. Whether you need reliable drinking water packaging or bespoke private label PET molds, we deliver unmatched speed and quality.
             </p>
 
-            {/* Why Choose Bento Grid preview */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
-              <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 hover:shadow-md transition-all">
+              <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 hover:border-brand-primary/20 transition-all">
                 <Award className="w-8 h-8 text-brand-accent mb-2" />
                 <h4 className="font-bold text-sm text-brand-secondary mb-1">Uncompromising Standards</h4>
                 <p className="text-xs text-slate-500">BIS and ISO certified laboratories running 50+ quality checkpoints daily.</p>
               </div>
 
-              <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 hover:shadow-md transition-all">
+              <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 hover:border-brand-primary/20 transition-all">
                 <Factory className="w-8 h-8 text-brand-primary mb-2" />
                 <h4 className="font-bold text-sm text-brand-secondary mb-1">Scalable Automation</h4>
                 <p className="text-xs text-slate-500">High-capacity lines bottling over 500,000 litres of water daily.</p>
               </div>
 
-              <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 hover:shadow-md transition-all">
+              <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 hover:border-brand-primary/20 transition-all">
                 <Leaf className="w-8 h-8 text-brand-accent mb-2" />
                 <h4 className="font-bold text-sm text-brand-secondary mb-1">Eco-Conscious Packaging</h4>
                 <p className="text-xs text-slate-500">Zero plastic waste discharge and biodegradable packaging alternatives.</p>
               </div>
 
-              <div className="p-4 bg-slate-50 rounded-xl border border-slate-100 hover:shadow-md transition-all">
+              <div className="p-4 bg-slate-50 rounded-xl border border-slate-200 hover:border-brand-primary/20 transition-all">
                 <Zap className="w-8 h-8 text-brand-primary mb-2" />
                 <h4 className="font-bold text-sm text-brand-secondary mb-1">Rapid B2B Execution</h4>
                 <p className="text-xs text-slate-500">From concept design to finished retail cartons in just 14 business days.</p>
@@ -283,7 +275,7 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
 
             <div className="pt-4">
               <button
-                onClick={() => onNavigate(NavSection.About)}
+                onClick={() => onNavigate(NavSection.Story)}
                 className="inline-flex items-center gap-1 text-sm font-semibold text-brand-primary hover:text-brand-accent hover:gap-2 transition-all cursor-pointer"
               >
                 Learn More About Our Journey
@@ -297,7 +289,7 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
       </section>
 
       {/* 4. OUR PRODUCTS PREVIEW SECTION */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 border-y border-slate-200/55">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-brand-light border-t border-slate-200">
         <div className="max-w-7xl mx-auto">
           
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
@@ -316,7 +308,7 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
             {PRODUCTS_DATA.map((product) => (
               <div 
                 key={product.id}
-                className="bg-white rounded-2xl border border-slate-200/70 overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all flex flex-col justify-between group"
+                className="bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-brand-primary/20 hover:-translate-y-0.5 transition-all flex flex-col justify-between group"
               >
                 <div>
                   <div className="h-56 overflow-hidden relative">
@@ -336,7 +328,6 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
                     <h3 className="font-display font-bold text-xl text-brand-secondary group-hover:text-brand-primary transition-colors">{product.name}</h3>
                     <p className="text-slate-500 text-xs leading-relaxed line-clamp-3">{product.description}</p>
                     
-                    {/* Sizes chips preview */}
                     <div className="pt-2">
                       <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1.5">Available Sizing:</span>
                       <div className="flex flex-wrap gap-1.5">
@@ -365,7 +356,7 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
                   </button>
                   <button
                     onClick={() => onNavigate(NavSection.Contact)}
-                    className="px-3.5 py-1.5 rounded-lg text-white font-medium text-[11px] bg-brand-secondary hover:bg-brand-primary transition-colors cursor-pointer"
+                    className="px-3.5 py-1.5 rounded-lg bg-brand-primary hover:bg-brand-primary/90 text-white font-medium text-[11px] transition-colors cursor-pointer"
                   >
                     Bulk Inquiry
                   </button>
@@ -377,7 +368,7 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
           <div className="text-center mt-12">
             <button
               onClick={() => onNavigate(NavSection.Products)}
-              className="px-6 py-3 rounded-xl border-2 border-brand-primary text-brand-primary font-bold text-sm hover:bg-brand-primary hover:text-white transition-all cursor-pointer"
+              className="px-6 py-3 rounded-lg border-2 border-brand-primary text-brand-primary font-bold text-sm hover:bg-brand-primary hover:text-white transition-all cursor-pointer"
             >
               Browse Complete Catalog
             </button>
@@ -387,15 +378,14 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
       </section>
 
       {/* 5. CLIENTS SCROLLING MARQUEE */}
-      <section className="bg-white py-12 border-b border-slate-100 overflow-hidden">
+      <section className="bg-white py-12 border-b border-slate-200 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 mb-6">
           <p className="text-center text-xs uppercase tracking-widest font-bold text-slate-400">
             Trusted by Elite Brands and Corporations Nationally & Globally
           </p>
         </div>
         
-        {/* Marquee Container */}
-        <div className="relative w-full overflow-hidden flex bg-slate-50 py-4 border-y border-slate-100">
+        <div className="relative w-full overflow-hidden flex bg-brand-light py-4 border-y border-slate-200">
           <div className="animate-marquee whitespace-nowrap flex gap-12 items-center">
             {clients.concat(clients).map((client, idx) => (
               <span 
@@ -437,10 +427,10 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
               <div className="pt-2">
                 <button
                   onClick={() => onNavigate(NavSection.Oem)}
-                  className="px-6 py-3 rounded-xl bg-brand-secondary hover:bg-brand-primary text-white font-bold text-sm shadow-md shadow-brand-secondary/15 transition-all flex items-center gap-2 cursor-pointer"
+                  className="px-6 py-3 rounded-lg bg-brand-primary hover:bg-brand-primary/90 text-white font-bold text-sm transition-all flex items-center gap-2 cursor-pointer"
                 >
                   Explore OEM Workflow
-                  <ArrowRight className="w-4 h-4 text-brand-accent" />
+                  <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
             </div>
@@ -477,7 +467,7 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
       </section>
 
       {/* 7. INDUSTRIES SERVED SECTION */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 border-y border-slate-200/50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-brand-light border-t border-slate-200">
         <div className="max-w-7xl mx-auto">
           
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
@@ -496,9 +486,9 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
             {industries.map((ind, idx) => (
               <div 
                 key={idx} 
-                className="p-6 bg-white rounded-xl border border-slate-200/50 shadow-sm hover:shadow-md hover:border-brand-primary/20 transition-all flex items-start gap-4"
+                className="p-6 bg-white rounded-xl border border-slate-200 hover:border-brand-primary/20 transition-all flex items-start gap-4"
               >
-                <div className="p-3 bg-slate-50 rounded-lg border border-slate-100 shrink-0">
+                <div className="p-3 bg-slate-50 rounded-lg border border-slate-200 shrink-0">
                   {ind.icon}
                 </div>
                 <div className="space-y-1">
@@ -515,12 +505,8 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
       {/* 8. TESTIMONIALS SLIDER SECTION */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
         <div className="max-w-4xl mx-auto text-center relative">
-          
-          <div className="absolute -top-10 left-0 text-slate-100 -z-10">
-            <Quote className="w-40 h-40 transform -scale-x-100 opacity-20" />
-          </div>
 
-          <span className="text-xs font-bold uppercase tracking-widest text-brand-accent bg-brand-accent/5 px-3 py-1 rounded-full mb-4 inline-block">
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-primary bg-brand-primary/5 px-3 py-1 rounded-full mb-4 inline-block">
             Client Testimonials
           </span>
 
@@ -547,7 +533,7 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
                 <img 
                   src={TESTIMONIALS_DATA[activeTestimonial].image} 
                   alt={TESTIMONIALS_DATA[activeTestimonial].name} 
-                  className="w-14 h-14 rounded-full object-cover border-2 border-brand-primary shadow-sm"
+                  className="w-14 h-14 rounded-full object-cover border-2 border-brand-primary"
                   referrerPolicy="no-referrer"
                 />
                 <strong className="text-base text-brand-secondary mt-3 block">{TESTIMONIALS_DATA[activeTestimonial].name}</strong>
@@ -556,7 +542,6 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
             </motion.div>
           </AnimatePresence>
 
-          {/* Testimonial nav arrows */}
           <div className="flex justify-center gap-4 mt-8">
             <button 
               onClick={handlePrevTestimonial}
@@ -578,7 +563,7 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
       </section>
 
       {/* 9. LATEST BLOG PREVIEW SECTION */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 border-t border-slate-200/50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-brand-light border-t border-slate-200">
         <div className="max-w-7xl mx-auto">
           
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 gap-4">
@@ -603,7 +588,7 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
             {BLOG_POSTS.map((post) => (
               <div 
                 key={post.id}
-                className="bg-white rounded-2xl border border-slate-200/60 overflow-hidden shadow-sm hover:shadow-md hover:-translate-y-1 transition-all flex flex-col justify-between"
+                className="bg-white rounded-2xl border border-slate-200 overflow-hidden hover:border-brand-primary/20 hover:-translate-y-0.5 transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="h-48 overflow-hidden relative">
@@ -644,17 +629,12 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
       </section>
 
       {/* 10. LARGE CALL TO ACTION BANNER */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-tr from-brand-secondary via-slate-900 to-brand-primary text-white text-center relative overflow-hidden">
-        
-        {/* Glow filters */}
-        <div className="absolute -top-12 -left-12 w-64 h-64 bg-brand-primary/25 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-12 -right-12 w-64 h-64 bg-brand-accent/20 rounded-full blur-3xl"></div>
-
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-brand-secondary text-white text-center relative overflow-hidden">
         <div className="max-w-4xl mx-auto space-y-6 relative z-10">
-          <Droplet className="w-12 h-12 text-cyan-400 mx-auto animate-bounce fill-cyan-400/5" />
+          <Droplet className="w-12 h-12 text-cyan-400 mx-auto fill-cyan-400/5" />
           
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-tight">
-            Ready to Partner with India’s Elite <br />Bottling Manufacturer?
+            Ready to Partner with India's Elite <br />Bottling Manufacturer?
           </h2>
           
           <p className="text-slate-300 text-base max-w-2xl mx-auto font-light leading-relaxed">
@@ -664,13 +644,13 @@ export default function HomeView({ onNavigate, onSelectProduct }: HomeViewProps)
           <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
             <button
               onClick={() => onNavigate(NavSection.Contact)}
-              className="px-8 py-4 rounded-xl text-white font-bold text-sm bg-brand-accent hover:bg-brand-accent/90 shadow-lg shadow-brand-accent/20 transition-all cursor-pointer"
+              className="px-8 py-4 rounded-lg text-white font-bold text-sm bg-brand-primary hover:bg-brand-primary/90 transition-all cursor-pointer"
             >
               Request Corporate Quotation
             </button>
             <button
               onClick={() => onNavigate(NavSection.Oem)}
-              className="px-8 py-4 rounded-xl border border-white/20 bg-white/5 hover:bg-white/10 text-white font-semibold text-sm transition-all cursor-pointer"
+              className="px-8 py-4 rounded-lg border border-white/20 bg-white/5 hover:bg-white/10 text-white font-semibold text-sm transition-all cursor-pointer"
             >
               Consult OEM Options
             </button>

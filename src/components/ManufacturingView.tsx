@@ -90,10 +90,9 @@ export default function ManufacturingView({ onNavigate }: ManufacturingViewProps
     <div className="relative">
       
       {/* Page Header */}
-      <section className="bg-gradient-to-br from-slate-900 to-brand-secondary text-white py-16 px-4 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-brand-primary/15 pointer-events-none"></div>
-        <div className="max-w-4xl mx-auto space-y-4 relative z-10">
-          <span className="text-xs font-bold uppercase tracking-widest text-brand-accent bg-brand-accent/10 px-3 py-1 rounded-full">
+      <section className="bg-brand-secondary text-white py-16 px-4 text-center">
+        <div className="max-w-4xl mx-auto space-y-4">
+          <span className="text-xs font-bold uppercase tracking-widest text-brand-accent bg-white/10 px-3 py-1 rounded-full">
             Manufacturing Facility
           </span>
           <h1 className="font-display font-extrabold text-3xl sm:text-5xl tracking-tight leading-tight">
@@ -124,16 +123,16 @@ export default function ManufacturingView({ onNavigate }: ManufacturingViewProps
               <div className="pt-4">
                 <button
                   onClick={() => onNavigate(NavSection.Oem)}
-                  className="px-5 py-3 rounded-xl bg-brand-primary hover:bg-brand-secondary text-white text-xs font-bold transition-all flex items-center gap-2 cursor-pointer"
+                  className="px-5 py-3 rounded-lg bg-brand-primary hover:bg-brand-primary/90 text-white text-xs font-bold transition-all flex items-center gap-2 cursor-pointer"
                 >
                   Consult Custom PET Molds
-                  <ArrowRight className="w-4 h-4 text-brand-accent" />
+                  <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
             </div>
 
             <div className="lg:col-span-6">
-              <div className="relative rounded-2xl overflow-hidden border border-slate-200/60 shadow-lg">
+              <div className="relative rounded-2xl overflow-hidden border border-slate-200">
                 <img 
                   src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800" 
                   alt="Industrial machinery" 
@@ -162,7 +161,7 @@ export default function ManufacturingView({ onNavigate }: ManufacturingViewProps
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {techCards.map((tech, idx) => (
-                <div key={idx} className="p-6 bg-slate-50 border border-slate-200/50 rounded-2xl text-left space-y-3 hover:shadow-md transition-all">
+                <div key={idx} className="p-6 bg-white border border-slate-200 rounded-xl text-left space-y-3 hover:border-slate-300 transition-colors">
                   <div className="p-3 bg-white border border-slate-100 rounded-xl w-fit text-brand-primary">
                     {tech.icon}
                   </div>
@@ -177,7 +176,7 @@ export default function ManufacturingView({ onNavigate }: ManufacturingViewProps
       </section>
 
       {/* The 7-Stage Water Treatment Diagram */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50 border-y border-slate-200/60 text-left">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-brand-light text-left">
         <div className="max-w-7xl mx-auto">
           
           <div className="max-w-3xl mb-16 space-y-3">
@@ -194,7 +193,7 @@ export default function ManufacturingView({ onNavigate }: ManufacturingViewProps
 
           <div className="space-y-6 relative border-l-2 border-brand-primary/30 pl-6 sm:pl-10 ml-4 sm:ml-6">
             {filtrationSteps.map((step, idx) => (
-              <div key={idx} className="relative group bg-white p-6 rounded-2xl border border-slate-200/55 shadow-sm hover:shadow-md transition-all">
+              <div key={idx} className="relative group bg-white p-6 rounded-xl border border-slate-200 hover:border-slate-300 transition-colors">
                 {/* Visual marker node */}
                 <div className="absolute -left-[45px] sm:-left-[61px] top-6 w-9 h-9 rounded-full bg-brand-primary text-white border-4 border-slate-50 flex items-center justify-center font-display font-bold text-xs group-hover:bg-brand-accent transition-colors shadow-sm">
                   {step.num}
@@ -218,7 +217,7 @@ export default function ManufacturingView({ onNavigate }: ManufacturingViewProps
       {/* Bottom Dispatch CTA Banner */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white text-center">
         <div className="max-w-4xl mx-auto space-y-6">
-          <Factory className="w-12 h-12 text-brand-primary mx-auto animate-pulse" />
+          <Factory className="w-12 h-12 text-brand-primary mx-auto" />
           <h3 className="font-display font-bold text-2xl sm:text-3xl text-brand-secondary">
             Inspect our Production Lines in Person
           </h3>
@@ -228,7 +227,7 @@ export default function ManufacturingView({ onNavigate }: ManufacturingViewProps
           <div className="pt-4">
             <button
               onClick={() => onNavigate(NavSection.Contact)}
-              className="px-6 py-3 rounded-xl bg-brand-secondary hover:bg-brand-primary text-white font-bold text-sm shadow-md transition-all cursor-pointer"
+              className="px-6 py-3 rounded-lg bg-brand-primary hover:bg-brand-primary/90 text-white font-bold text-sm transition-colors cursor-pointer"
             >
               Schedule Factory Audit Visit
             </button>

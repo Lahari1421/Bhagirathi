@@ -10,6 +10,7 @@ import { NavSection } from './types';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomeView from './components/HomeView';
+import StoryView from './components/StoryView';
 import AboutView from './components/AboutView';
 import ProductsView from './components/ProductsView';
 import ManufacturingView from './components/ManufacturingView';
@@ -48,6 +49,8 @@ export default function App() {
             onSelectProduct={handleSelectProduct} 
           />
         );
+      case NavSection.Story:
+        return <StoryView onNavigate={handleNavigate} />;
       case NavSection.About:
         return <AboutView onNavigate={handleNavigate} />;
       case NavSection.Products:
@@ -84,29 +87,22 @@ export default function App() {
 
   return (
     <div className="flex flex-col min-h-screen bg-white">
-      
-      {/* Premium Multi-state sticky navbar */}
       <Navbar currentSection={currentSection} onNavigate={handleNavigate} />
-
-      {/* Main Corporate Content with transition triggers */}
       <main className="flex-grow">
         <AnimatePresence mode="wait">
           <motion.div
             key={currentSection}
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -15 }}
-            transition={{ duration: 0.25 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2 }}
             className="w-full"
           >
             {renderActiveView()}
           </motion.div>
         </AnimatePresence>
       </main>
-
-      {/* Premium structural footer */}
       <Footer onNavigate={handleNavigate} />
-
     </div>
   );
 }
