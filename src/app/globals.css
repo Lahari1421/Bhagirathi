@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: 'Segoe UI', Arial, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'Segoe UI', Arial, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --background: 0 0% 100%;
+    --foreground: 205 60% 10%;
+    --muted: 190 44% 96%;
+    --muted-foreground: 205 16% 40%;
+    --border: 200 30% 90%;
+    --input: 200 30% 90%;
+    --ring: 187 82% 29%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* Guard against stray horizontal scroll from decorative elements.
+       `clip` (not `hidden`) preserves position: sticky. */
+    overflow-x: clip;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: 'ss01', 'cv01', 'cv03';
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
+  /* Media never forces the viewport wider than the screen. */
+  img,
+  video,
+  iframe,
+  svg {
+    max-width: 100%;
+  }
+
+  ::selection {
+    @apply bg-brand text-white;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: theme('colors.brand.600');
+    border-radius: 8px;
+    border: 2px solid hsl(var(--muted));
+  }
+}
+
+@layer components {
+  /* Reusable premium building blocks */
+  .container-page {
+    @apply mx-auto w-full max-w-[1360px] px-6 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-600;
+  }
+
+  .glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/40;
+  }
+
+  .glass-dark {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand-500 via-aqua-deep to-brand-600 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-light {
+    @apply bg-gradient-to-r from-white via-aqua-light to-white bg-clip-text text-transparent;
+  }
+
+  .link-underline {
+    @apply relative after:absolute after:-bottom-0.5 after:left-0 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full;
+  }
+
+  .section {
+    @apply py-20 sm:py-28;
+  }
+
+  .card-hover {
+    @apply transition-all duration-500 hover:-translate-y-1.5 hover:shadow-card;
+  }
+}
+
+@layer utilities {
+  /* Water motifs -------------------------------------------------------- */
+
+  /* Faint concentric ripples for dark surfaces (replaces tech grid). */
+  .bg-ripple {
+    background-image:
+      radial-gradient(120% 90% at 15% 0%, rgba(56, 208, 224, 0.14), transparent 55%),
+      radial-gradient(90% 80% at 85% 10%, rgba(14, 124, 134, 0.18), transparent 55%),
+      repeating-radial-gradient(
+        circle at 80% -10%,
+        rgba(126, 232, 242, 0.05) 0,
+        rgba(126, 232, 242, 0.05) 1px,
+        transparent 1px,
+        transparent 46px
+      );
+  }
+
+  /* Gentle flowing caustic sheen — animate a soft light band across water. */
+  .water-caustics {
+    position: relative;
+  }
+  .water-caustics::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      120deg,
+      transparent 20%,
+      rgba(126, 232, 242, 0.06) 42%,
+      rgba(126, 232, 242, 0.1) 50%,
+      rgba(126, 232, 242, 0.06) 58%,
+      transparent 80%
+    );
+    background-size: 220% 100%;
+    animation: caustic 14s ease-in-out infinite;
+  }
+
+  /* Subtle water tint for light sections. */
+  .water-tint {
+    background-image: radial-gradient(
+      1000px 500px at 50% -10%,
+      rgba(56, 208, 224, 0.07),
+      transparent 60%
+    );
+  }
+
+  /* Scroll-reveal: visible by default; JS hides only off-screen items. */
+  .reveal {
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity, transform;
+  }
+  .reveal-hidden {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .mask-fade-b {
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+  .mask-fade-r {
+    -webkit-mask-image: linear-gradient(to right, black 80%, transparent 100%);
+    mask-image: linear-gradient(to right, black 80%, transparent 100%);
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Subtle Ken Burns zoom for the rotating hero slideshow. */
+@keyframes kenburns {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
